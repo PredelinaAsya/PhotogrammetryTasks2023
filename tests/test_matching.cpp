@@ -20,7 +20,7 @@
 
 // TODO enable both toggles for testing custom detector & matcher
 #define ENABLE_MY_DESCRIPTOR 0
-#define ENABLE_MY_MATCHING 0
+#define ENABLE_MY_MATCHING 1
 #define ENABLE_GPU_BRUTEFORCE_MATCHER 0
 
 #if ENABLE_MY_MATCHING
@@ -83,6 +83,7 @@ namespace {
             phg::DescriptorMatcher::filterMatchesClusters(good_matches, keypoints1, keypoints2, tmp);
             std::swap(tmp, good_matches);
         }
+        std::cout << "RatioTest initialization finished" << std::endl;
 #else
         {
             std::vector<DMatch> tmp;
@@ -118,6 +119,7 @@ namespace {
         phg::FlannMatcher matcher;
         matcher.train(descriptors2);
         matcher.knnMatch(descriptors1, knn_matches, 2);
+        std::cout << "FLANN initialization in evaluation finished" << std::endl;
 #else
         Ptr<DescriptorMatcher> matcher = DescriptorMatcher::create(DescriptorMatcher::FLANNBASED);
         matcher->knnMatch( descriptors1, descriptors2, knn_matches, 2 );
@@ -199,6 +201,7 @@ namespace {
             color_rmse /= count;
             color_rmse = std::sqrt(color_rmse);
         }
+        std::cout << "RMSE calculation finished" << std::endl;
     }
 
 }
