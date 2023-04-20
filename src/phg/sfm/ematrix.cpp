@@ -60,7 +60,6 @@ namespace {
 
     bool depthTest(const vector2d &m0, const vector2d &m1, const phg::Calibration &calib0, const phg::Calibration &calib1, const matrix34d &P0, const matrix34d &P1)
     {
-        throw std::runtime_error("not implemented yet");
         // скомпенсировать калибровки камер
         vector3d p0 = calib0.K().inv() * vector3d(m0(0), m0(1), 1);
         vector3d p1 = calib1.K().inv() * vector3d(m1(0), m1(1), 1);
