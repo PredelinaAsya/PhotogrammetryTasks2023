@@ -17,12 +17,6 @@
 
 #include "utils/test_utils.h"
 
-<<<<<<< HEAD
-=======
-
-#define ENABLE_MY_SFM 1
-
->>>>>>> origin/task03
 namespace {
 
     void filterMatchesF(const std::vector<cv::DMatch> &matches, const std::vector<cv::KeyPoint> keypoints_query,
